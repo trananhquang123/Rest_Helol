@@ -1,4 +1,0 @@
-*.iml
-mvnw
-mvn2.cmd
-.mvn/
