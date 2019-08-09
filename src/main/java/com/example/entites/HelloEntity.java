@@ -1,11 +1,11 @@
-package com.example.entitys;
+package com.example.entites;
 
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "hello_world")
-public class hello_Entity {
+public class HelloEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "usersgenerator")
     private Long id;

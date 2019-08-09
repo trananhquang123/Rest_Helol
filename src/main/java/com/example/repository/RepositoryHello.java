@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.entitys.hello_Entity;
+import com.example.entites.HelloEntity;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -12,14 +12,14 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public interface repository_Hello extends JpaRepository<hello_Entity,Long> {
+public interface RepositoryHello extends JpaRepository<HelloEntity,Long> {
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update hello_Entity set id =:newId WHERE message1 =:message1")
+    @Query(value = "update HelloEntity set id =:newId WHERE message1 =:message1")
     void updateHelloById(@Param("newId") int id ,@Param("message1") String message);
 
-    List<hello_Entity> findById(int id, PageRequest message);
+    List<HelloEntity> findById(int id, PageRequest message);
 
-    @Query(value = "select p From hello_Entity p ORDER BY message ASC ")
-    List<hello_Entity> findByLastName();
+    @Query(value = "select p From HelloEntity p ORDER BY message ASC ")
+    List<HelloEntity> findByLastName();
 }

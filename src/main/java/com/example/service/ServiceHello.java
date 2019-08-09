@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.entitys.hello_Entity;
-import com.example.repository.repository_Hello;
+import com.example.entites.HelloEntity;
+import com.example.repository.RepositoryHello;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class service_Hello{
+public class ServiceHello{
 
     @Autowired
-    private repository_Hello  repositoryHello;
+    private RepositoryHello  repositoryHello;
 
-    public List<hello_Entity> hello() {
+    public List<HelloEntity> hello() {
         return repositoryHello.findAll();
     }
 
-    public hello_Entity save(hello_Entity hello){
+    public HelloEntity save(HelloEntity hello){
         return repositoryHello.save(hello);
     }
 
@@ -26,11 +26,11 @@ public class service_Hello{
        repositoryHello.updateHelloById(id, message);
     }
 
-    public List<hello_Entity> findById(int id, PageRequest message) {
+    public List<HelloEntity> findById(int id, PageRequest message) {
         return repositoryHello.findById(id,message);
     }
 
-    public List<hello_Entity> findLastName() {
+    public List<HelloEntity> findLastName() {
          return repositoryHello.findByLastName();
     }
 }

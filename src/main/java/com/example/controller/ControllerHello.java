@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import com.example.entitys.hello_Entity;
-import com.example.service.service_Hello;
+import com.example.entites.HelloEntity;
+import com.example.service.ServiceHello;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -13,19 +13,19 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
-public class controller_Hello {
+public class ControllerHello {
 
     @Autowired
-    service_Hello serviceHello;
+    ServiceHello serviceHello;
 
     @GetMapping("/helloworld")
-    public List<hello_Entity> hello1( ){
+    public List<HelloEntity> hello1( ){
        return serviceHello.hello();
     }
 
     @PostMapping("/add-hello")
-    public ResponseEntity<hello_Entity> addHello(@RequestBody hello_Entity addhello){
-        hello_Entity  hello = serviceHello.save(addhello);
+    public ResponseEntity<HelloEntity> addHello(@RequestBody HelloEntity addhello){
+        HelloEntity  hello = serviceHello.save(addhello);
 
         return ResponseEntity.ok().body(hello);
     }
@@ -34,12 +34,12 @@ public class controller_Hello {
          serviceHello.updateHello(8,"Hola");
          return "Update successfully";
     }
-    @GetMapping("/ASC")
-    public List<hello_Entity> SortAsc(){
+    @GetMapping("/asc")
+    public List<HelloEntity> SortAsc(){
         return serviceHello.findById(1,new PageRequest(0,4, Sort.Direction.ASC,"message"));
     }
-    @GetMapping("/lastname")
-    public List<hello_Entity> getLastName(){
+    @GetMapping("/lastname-asc")
+    public List<HelloEntity> getLastName(){
         return serviceHello.findLastName();
     }
 }
