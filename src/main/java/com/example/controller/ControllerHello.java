@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/helloworld")
 public class ControllerHello {
 
     @Autowired
     ServiceHello serviceHello;
 
-    @GetMapping("/helloworld")
-    public List<HelloEntity> hello1( ){
+    @GetMapping("/")
+    public List<HelloEntity> hello(){
        return serviceHello.hello();
     }
 
@@ -29,17 +29,25 @@ public class ControllerHello {
 
         return ResponseEntity.ok().body(hello);
     }
-    @PutMapping("/update")
-    public String update(){
-         serviceHello.updateHello(8,"Hola");
+    @PutMapping("/update/{id}")
+    public String update(@PathVariable(value ="id") Long id){
+        Optional<HelloEntity> findId =serviceHello.findById(id);
+        if(findId.isPresent()){
+            return "Id da co san trong DB , vui long chon id khac";
+        }
+         serviceHello.updateHelloById(id,"Hola");
          return "Update successfully";
     }
     @GetMapping("/asc")
     public List<HelloEntity> SortAsc(){
         return serviceHello.findById(1,new PageRequest(0,4, Sort.Direction.ASC,"message"));
     }
-    @GetMapping("/lastname-asc")
-    public List<HelloEntity> getLastName(){
-        return serviceHello.findLastName();
+    @GetMapping("/{lastname-asc}")
+    public List<HelloEntity> SortAscMessage(@PathVariable(value = "lastname-asc") String message ) {
+        return serviceHello.SortAscMessage(message);
     }
+//    @GetMapping("/lastname-asc")
+//    public List<HelloEntity> SortAscMessage() {
+//        return serviceHello.SortAscMessage();
+//    }
 }

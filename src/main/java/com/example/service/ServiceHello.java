@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceHello{
@@ -22,7 +23,7 @@ public class ServiceHello{
         return repositoryHello.save(hello);
     }
 
-    public  void updateHello(int id , String message){
+    public  void updateHelloById(Long id , String message){
        repositoryHello.updateHelloById(id, message);
     }
 
@@ -30,7 +31,15 @@ public class ServiceHello{
         return repositoryHello.findById(id,message);
     }
 
-    public List<HelloEntity> findLastName() {
-         return repositoryHello.findByLastName();
+    public Optional<HelloEntity> findById(Long id) {
+        return repositoryHello.findById(id);
     }
+
+    public List<HelloEntity> SortAscMessage(String message) {
+         return repositoryHello.SortAscMessage(message);
+    }
+
+//    public List<HelloEntity> SortAscMessage() {
+//        return repositoryHello.SortAscMessage();
+//    }
 }
