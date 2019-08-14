@@ -23,23 +23,11 @@ public class ServiceHello{
         return repositoryHello.save(hello);
     }
 
-    public  void updateHelloById(Long id , String message){
-       repositoryHello.updateHelloById(id, message);
+    public void updateHelloById(long id , String message){
+        repositoryHello.updateHelloById(id, message);
     }
-
-    public List<HelloEntity> findById(int id, PageRequest message) {
-        return repositoryHello.findById(id,message);
-    }
-
-    public Optional<HelloEntity> findById(Long id) {
+    public Optional<HelloEntity> findById(long id) {
         return repositoryHello.findById(id);
     }
 
-    public List<HelloEntity> SortAscMessage(String message) {
-         return repositoryHello.SortAscMessage(message);
-    }
-
-//    public List<HelloEntity> SortAscMessage() {
-//        return repositoryHello.SortAscMessage();
-//    }
 }

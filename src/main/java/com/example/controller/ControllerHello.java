@@ -3,8 +3,6 @@ package com.example.controller;
 import com.example.entites.HelloEntity;
 import com.example.service.ServiceHello;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,24 +28,15 @@ public class ControllerHello {
         return ResponseEntity.ok().body(hello);
     }
     @PutMapping("/update/{id}")
-    public String update(@PathVariable(value ="id") Long id){
+    public HelloEntity updateId(@PathVariable(value ="id") long id){
         Optional<HelloEntity> findId =serviceHello.findById(id);
         if(findId.isPresent()){
-            return "Id da co san trong DB , vui long chon id khac";
+            return null;
         }
-         serviceHello.updateHelloById(id,"Hola");
-         return "Update successfully";
+        serviceHello.updateHelloById(id,"Hola");
+        Optional<HelloEntity> findIdUpdated =serviceHello.findById(id);
+
+         return findIdUpdated.get();
     }
-    @GetMapping("/asc")
-    public List<HelloEntity> SortAsc(){
-        return serviceHello.findById(1,new PageRequest(0,4, Sort.Direction.ASC,"message"));
-    }
-    @GetMapping("/{lastname-asc}")
-    public List<HelloEntity> SortAscMessage(@PathVariable(value = "lastname-asc") String message ) {
-        return serviceHello.SortAscMessage(message);
-    }
-//    @GetMapping("/lastname-asc")
-//    public List<HelloEntity> SortAscMessage() {
-//        return serviceHello.SortAscMessage();
-//    }
+
 }

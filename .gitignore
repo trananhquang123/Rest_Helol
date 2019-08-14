@@ -4,4 +4,4 @@
 HELP.md
 mvnw
 mvnw.cmd
-rest_HelloWorld.iml
+*.iml
