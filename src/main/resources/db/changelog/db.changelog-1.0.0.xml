@@ -14,10 +14,16 @@
 
     <changeSet id="2" author="Quang">
         <insert tableName="hello_world">
-            <column name="message" value="hello"></column>
+            <column name="message" value="Hello"></column>
         </insert>
         <insert tableName="hello_world">
             <column name="message" value="Xin chao"></column>
+        </insert>
+        <insert tableName="hello_world">
+            <column name="message" value="Hola"></column>
+        </insert>
+        <insert tableName="hello_world">
+            <column name="message" value="Heyji"></column>
         </insert>
     </changeSet>
 
