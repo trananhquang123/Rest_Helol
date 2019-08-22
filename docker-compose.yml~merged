@@ -1,0 +1,34 @@
+services:
+<<<<<<< HEAD
+=======
+
+>>>>>>> fig-bug-docker
+  db:
+    image: postgres
+    restart: always
+    environment:
+<<<<<<< HEAD
+      POSTGRES_PASSWORD = 123456
+      POSTGRES_USER = postgres
+      POSTGRES_DB = hello_World
+    ports:
+         5432:5432
+    adminer:
+      image: user-postgres
+      restart: always
+      port:
+          8080-8080
+=======
+      POSTGRES_PASSWORD=123456
+      POSTGRES_USER=postgres
+      POSTGRES_DB=hello_World
+      ports:
+        5432:5432
+  adminer:
+    image: user-postgres
+    restart: always
+    ports:
+      - 8080:8080
+
+
+>>>>>>> fig-bug-docker
