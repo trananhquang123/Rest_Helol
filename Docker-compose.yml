@@ -2,6 +2,7 @@
 services:
   db:
     image: postgres
+    container_name: postgres
     restart: always
     environment:
       - POSTGRES_PASSWORD=123456
@@ -10,7 +11,9 @@ services:
       ports:
         - 5432:5432
   web:
-    image: app-postgres
+    image: app
+    build: .
+    container_name:app
     depends_on:
       - db
     restart: always
