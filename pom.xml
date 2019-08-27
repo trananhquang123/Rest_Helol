@@ -81,7 +81,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>app-postgres</finalName>
+		<finalName>user-postgres</finalName>
 	</build>
 
 </project>
