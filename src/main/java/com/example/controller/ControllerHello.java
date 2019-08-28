@@ -21,7 +21,7 @@ public class ControllerHello {
        return serviceHello.hello();
     }
 
-    @PostMapping("/add-hello")
+    @PostMapping("/add")
     public ResponseEntity<HelloEntity> addHello(@RequestBody HelloEntity addhello){
         HelloEntity  hello = serviceHello.save(addhello);
 

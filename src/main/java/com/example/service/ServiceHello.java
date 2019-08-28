@@ -21,7 +21,6 @@ public class ServiceHello{
         return repositoryHello.findAll();
     }
 
-    @Cacheable(value = "ticketsCache" ,key = "#hello")
     public HelloEntity save(HelloEntity hello){
         return repositoryHello.save(hello);
     }
