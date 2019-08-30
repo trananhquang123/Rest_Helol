@@ -1,5 +1,0 @@
-com\example\RestHelloWorldApplication.class
-com\example\controller\ControllerHello.class
-com\example\entites\HelloEntity.class
-com\example\repository\RepositoryHello.class
-com\example\service\ServiceHello.class
