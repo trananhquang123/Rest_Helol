@@ -40,10 +40,13 @@
 			<scope>runtime</scope>
 		</dependency>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--		<dependency>-->
 <!--			<groupId>org.liquibase</groupId>-->
 <!--			<artifactId>liquibase-core</artifactId>-->
 <!--		</dependency>-->
+=======
+>>>>>>> parent of e2db824... correct docker-compose, liquibase config
 =======
 >>>>>>> parent of e2db824... correct docker-compose, liquibase config
 		<dependency>
