@@ -7,11 +7,7 @@ import javax.persistence.*;
 @Table(name = "hello_world")
 public class HelloEntity {
     @Id
-    @GeneratedValue(generator = "answer_generator")
-    @SequenceGenerator(
-            name = "answer_generator",
-            sequenceName = "answer_sequence",
-            initialValue = 1000    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "usersgenerator")
     private Long id;
 
     public String getMessage() {

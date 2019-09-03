@@ -1,26 +1,31 @@
-
+version: '3.3'
 services:
   db:
     image: postgres
-    container_name: postgres
+    container_name: postgres1
     restart: always
+    networks:
+      dev:
+        aliases:
+        - postgres.docker
     environment:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_USER=postgres
       - POSTGRES_DB=hello_World
-      ports:
-        - 5432:5432
+    ports:
+      - 5432:5432
   web:
-    image: app
-    build: .
-    container_name:app
+    build: ./target
     depends_on:
       - db
     restart: always
     ports:
-      - 8080:8080
+      - 8585:8585
     environment:
-      - DATABASE_HOST = db
-      - DATABASE_USER = postgres
-      - DATABASE_PASSWORD = 123456
-      - DATABASE_PORT = 5432
+    - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      dev:
+        aliases:
+        - web.docker
+networks:
+  dev:

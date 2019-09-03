@@ -3,7 +3,6 @@ package com.example.service;
 import com.example.entites.HelloEntity;
 import com.example.repository.RepositoryHello;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,6 @@ public class ServiceHello{
     @Autowired
     private RepositoryHello  repositoryHello;
 
-    @Cacheable(value = "ticketsCache" )
     public List<HelloEntity> hello() {
         return repositoryHello.findAll();
     }
