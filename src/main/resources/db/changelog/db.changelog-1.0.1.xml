@@ -5,33 +5,12 @@
 
 
     <changeSet author="Quang" id="db.changelog-1.0.1">
-        <insert tableName="hello_world">
-            <column name="message" value="Hello"></column>
-            <column name="locale" value="vi-VN"></column>
-            <column name="updated" valueDate="now()"></column>
-
-        </insert>
-        <insert tableName="hello_world">
-            <column name="message" value="Xin chao"></column>
-            <column name="locale" value="en-GB"></column>
-            <column name="updated" valueDate="now()"></column>
-        </insert>
-        <insert tableName="hello_world">
-            <column name="message" value="Hola"></column>
-            <column name="locale" value="vi-VN"></column>
-            <column name="updated" valueDate="now()"></column>
-
-        </insert>
-        <insert tableName="hello_world">
-            <column name="message" value="Heyji"></column>
-            <column name="locale" value="en-GB"></column>
-            <column name="updated" valueDate="now()"></column>
-
-        </insert>
+        <addColumn
+                   schemaName="public"
+                   tableName="hello_world">
+            <column name="locale" type="VARCHAR(255)"></column>
+            <column name="updated" type="DATETIME"></column>
+        </addColumn>
     </changeSet>
-
-<!--    <changeSet id="tag-1.1" author="Quang">-->
-<!--        <tagDatabase tag="version_1.1" />-->
-<!--    </changeSet>-->
 
 </databaseChangeLog>

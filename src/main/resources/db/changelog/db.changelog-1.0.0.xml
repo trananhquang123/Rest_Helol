@@ -9,14 +9,23 @@
                 <constraints primaryKey="true" />
             </column>
             <column name="message" type="VARCHAR(255)" />
-            <column name="locale" type="VARCHAR(255)"></column>
-            <column name="updated" type="DATETIME"></column>
         </createTable>
     </changeSet>
 
-<!--    <changeSet id="tag-1.0" author="Quang">-->
-<!--        <tagDatabase tag="version_1.0" />-->
-<!--    </changeSet>-->
+    <changeSet id="db.changelog.insert-1.0.0." author="Quang">
+        <insert tableName="hello_world">
+            <column name="message" value="Hello"></column>
+        </insert>
+        <insert tableName="hello_world">
+            <column name="message" value="Xin chao"></column>
+        </insert>
+        <insert tableName="hello_world">
+            <column name="message" value="Hola"></column>
+        </insert>
+        <insert tableName="hello_world">
+            <column name="message" value="Heyji"></column>
+        </insert>
+    </changeSet>
 
 
 </databaseChangeLog>
