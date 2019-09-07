@@ -15,7 +15,7 @@ public class ServiceHello{
     @Autowired
     private RepositoryHello  repositoryHello;
 
-    public List<HelloEntity> hello() {
+    public List<HelloEntity> allMessageHello() {
         return repositoryHello.findAll();
     }
 
